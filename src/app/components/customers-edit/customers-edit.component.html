@@ -82,12 +82,12 @@
             <label>State
             </label>
             <select formControlName="state" class="form-control form-control-sm"
-              [ngClass]="{ 'is-invalid': (submitted || formControls.city.touched)  && formControls.city.errors }">
+              [ngClass]="{ 'is-invalid': (submitted || formControls.state.touched)  && formControls.state.errors }">
               <option *ngFor="let stateItem of StatesData; let i=index" [value]="stateItem?.name">{{stateItem?.name}}
               </option>
             </select>
-            <div *ngIf="((submitted || formControls.city.touched) && formControls.city.errors)" class="invalid-input">
-              <div class="error-msg" *ngIf="formControls.city.errors.required">State is required</div>
+            <div *ngIf="((submitted || formControls.state.touched) && formControls.state.errors)" class="invalid-input">
+              <div class="error-msg" *ngIf="formControls.state.errors.required">State is required</div>
             </div>
           </div>
 
