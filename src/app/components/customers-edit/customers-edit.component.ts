@@ -21,7 +21,6 @@ export class CustomersEditComponent implements OnInit, OnDestroy {
   StatesData: any[];
   ButtonName: string;
   disableDelete: boolean;
-  filterText: any;
 
   constructor(
     private fb: FormBuilder,

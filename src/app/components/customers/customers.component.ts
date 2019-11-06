@@ -31,14 +31,19 @@ export class CustomersComponent implements OnInit {
     this.displayMode = mode;
   }
 
-  customersFilter(filterBy?: string): void {
-    if (filterBy) {
-      this.filteredCustomers = this.allCustomers.filter(
-        (customer: Customers) =>
-        customer.firstName.toLowerCase().indexOf(filterBy.toLowerCase()) !== -1
-      );
-    } else {
+  customersFilter(term: string) {
+    if (!term) {
       this.filteredCustomers = this.allCustomers;
+    } else {
+      this.filteredCustomers = this.allCustomers.filter(
+        x =>
+          x.firstName.toLowerCase().indexOf(term.toLowerCase()) > -1 ||
+          x.lastName.toLowerCase().indexOf(term.toLowerCase()) > -1 ||
+          x.address.toLowerCase().indexOf(term.toLowerCase()) > -1 ||
+          x.state.toLowerCase().indexOf(term.toLowerCase()) > -1 ||
+          x.gender.toLowerCase().indexOf(term.toLowerCase()) > -1 ||
+          x.city.toLowerCase().indexOf(term.toLowerCase()) > -1
+      );
     }
   }
 }
@@ -47,6 +52,3 @@ enum DisplayModeEnum {
   Card = 0,
   List = 1
 }
-
-
-
