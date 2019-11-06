@@ -23,7 +23,8 @@
                 [class.active]="displayMode === displayModeEnum.List"><i class="fas fa-list"></i> List View </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link"><i class="fa fa-plus" aria-hidden="true"></i> <a class="add-customer" [routerLink]="['/customers/0/edit']">
+              <a class="nav-link"><i class="fa fa-plus" aria-hidden="true"></i> <a class="add-customer"
+                  [routerLink]="['/customers/0/edit']">
                   New Customer</a> </a>
             </li>
           </ul>
@@ -76,7 +77,7 @@
         </div>
       </div>
 
-      <div *ngIf="filteredCustomers.length === 0" >
+      <div *ngIf="filteredCustomers.length === 0">
         <p> No Records Found </p>
       </div>
 
@@ -115,10 +116,10 @@
                 <td> {{customer?.state}} </td>
               </tr>
             </tbody>
-            <div *ngIf="filteredCustomers.length === 0" >
-              <p> No Records Found </p>
-            </div>
           </table>
+          <div *ngIf="filteredCustomers.length === 0">
+            <p> No Records Found </p>
+          </div>
         </div>
       </div>
     </section>
