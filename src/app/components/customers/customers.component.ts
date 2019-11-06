@@ -35,9 +35,7 @@ export class CustomersComponent implements OnInit {
     if (filterBy) {
       this.filteredCustomers = this.allCustomers.filter(
         (customer: Customers) =>
-        customer.firstName
-            .toLocaleLowerCase()
-            .indexOf(filterBy.toLocaleLowerCase()) !== -1
+        customer.firstName.toLowerCase().indexOf(filterBy.toLowerCase()) !== -1
       );
     } else {
       this.filteredCustomers = this.allCustomers;
@@ -49,3 +47,6 @@ enum DisplayModeEnum {
   Card = 0,
   List = 1
 }
+
+
+

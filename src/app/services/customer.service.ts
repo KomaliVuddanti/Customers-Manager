@@ -8,8 +8,14 @@ import { catchError } from "rxjs/operators";
 @Injectable()
 export class CustomerService {
   private url = environment.serviceUrl;
+  private stateUrl = environment.statesUrl;
 
   constructor(private http: HttpClient) {}
+
+  getAllStates(): Observable<any[]> {
+    const url = `${this.stateUrl}`;
+    return this.http.get<any[]>(url).pipe(catchError(this.handleError));
+  }
 
   getAllCustomers(): Observable<Customers[]> {
     const url = `${this.url}`;
@@ -23,7 +29,6 @@ export class CustomerService {
       const url = `${this.url}/${id}`;
       return this.http.get<Customers>(url).pipe(catchError(this.handleError));
     }
-
   }
 
   saveCustomer(formObject: Customers): Observable<Customers> {
@@ -38,6 +43,11 @@ export class CustomerService {
     return this.http
       .put<Customers>(url, formObject)
       .pipe(catchError(this.handleError));
+  }
+
+  deleteCustomer(id: number): Observable<Customers> {
+    const url = `${this.url}/${id}`;
+    return this.http.delete<Customers>(url).pipe(catchError(this.handleError));
   }
 
   private initializeCustomer(): Customers {
