@@ -6,7 +6,7 @@
   <div class="row">
     <div class="col-md-6">
       <div class="customer-form">
-        <form [formGroup]="customerForm" (ngSubmit)="saveCustomerForm()" >
+        <form [formGroup]="customerForm" (ngSubmit)="saveCustomerForm()">
           <div class="form-group">
             <label>First Name
             </label>
@@ -15,6 +15,8 @@
             <div *ngIf="((submitted || formControls.firstName.touched) && formControls.firstName.errors)"
               class="invalid-input">
               <div class="error-msg" *ngIf="formControls.firstName.errors.required">First Name is required</div>
+              <div class="error-msg" *ngIf="formControls.firstName.errors.minlength">Min Length is 3 Character</div>
+              <div class="error-msg" *ngIf="formControls.firstName.errors.maxlength">Max Length is 30 Character</div>
             </div>
           </div>
 
@@ -49,6 +51,7 @@
               [ngClass]="{ 'is-invalid': (submitted || formControls.email.touched)  && formControls.email.errors }" />
             <div *ngIf="((submitted || formControls.email.touched) && formControls.email.errors)" class="invalid-input">
               <div class="error-msg" *ngIf="formControls.email.errors.required">Email is required</div>
+              <div *ngIf="formControls.email.errors.email">Email must be a valid email address</div>
             </div>
           </div>
 
@@ -60,6 +63,7 @@
             <div *ngIf="((submitted || formControls.address.touched) && formControls.address.errors)"
               class="invalid-input">
               <div class="error-msg" *ngIf="formControls.address.errors.required">Address is required</div>
+              <div class="error-msg" *ngIf="formControls.address.errors.maxlength">Max Length is 50 Character</div>
             </div>
           </div>
 
@@ -70,6 +74,7 @@
               [ngClass]="{ 'is-invalid': (submitted || formControls.city.touched)  && formControls.city.errors }" />
             <div *ngIf="((submitted || formControls.city.touched) && formControls.city.errors)" class="invalid-input">
               <div class="error-msg" *ngIf="formControls.city.errors.required">City is required</div>
+              <div class="error-msg" *ngIf="formControls.city.errors.maxlength">Max Length is 20 Character</div>
             </div>
           </div>
 
@@ -87,8 +92,9 @@
           </div>
 
           <div class="row">
-            <div  class="text-left col-md-6">
-              <button class="btn btn-danger" type="button" [disabled]="disableDelete" (click)="deleteCustomer()">Delete</button>&nbsp;&nbsp;
+            <div class="text-left col-md-6">
+              <button class="btn btn-danger" type="button" [disabled]="disableDelete"
+                (click)="deleteCustomer()">Delete</button>&nbsp;&nbsp;
             </div>
             <div class="text-right col-md-6">
               <button class="btn btn-default" type="button" [routerLink]="['/customers']">Cancel</button>&nbsp;&nbsp;

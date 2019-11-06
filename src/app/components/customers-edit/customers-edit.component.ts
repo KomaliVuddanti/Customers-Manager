@@ -32,12 +32,12 @@ export class CustomersEditComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.customerForm = this.fb.group({
-      firstName: ["", [Validators.required]],
+      firstName: ["", [Validators.required, Validators.minLength(3),  Validators.maxLength(30)]],
       lastName: ["", Validators.required],
-      email: ["", Validators.required],
+      email: ["", Validators.required, Validators.email],
       gender: ["", Validators.required],
-      address: ["", Validators.required],
-      city: ["", Validators.required],
+      address: ["", Validators.required, Validators.maxLength(50)],
+      city: ["", Validators.required, Validators.maxLength(20)],
       state: ["", Validators.required]
     });
     this.getStates();
