@@ -1,0 +1,98 @@
+<div class="container">
+  <div class="title">
+    <h5> {{title}} </h5>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="customer-form">
+        <form [formGroup]="customerForm">
+          <div class="form-group">
+            <label>First Name
+            </label>
+            <input type="text" formControlName="firstName" class="form-control"
+              [ngClass]="{ 'is-invalid': (submitted || formControls.firstName.touched)  && formControls.firstName.errors }" />
+            <div *ngIf="((submitted || formControls.firstName.touched) && formControls.firstName.errors)"
+              class="invalid-input">
+              <div class="error-msg" *ngIf="formControls.firstName.errors.required">First Name is required</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Last Name
+            </label>
+            <input type="text" formControlName="lastName" class="form-control"
+              [ngClass]="{ 'is-invalid': (submitted || formControls.lastName.touched)  && formControls.lastName.errors }" />
+            <div *ngIf="((submitted || formControls.lastName.touched) && formControls.lastName.errors)"
+              class="invalid-input">
+              <div class="error-msg" *ngIf="formControls.lastName.errors.required">Last Name is required</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Select Gender</label>
+            <div class="gender text-capitalize">
+              <label *ngFor="let gender of genders">
+                <input type="radio" [value]="gender" formControlName="gender"
+                  [ngClass]="{'is-invalid': submitted && formControls.gender.errors }"> &nbsp;{{gender}} &nbsp;
+              </label>
+            </div>
+            <div *ngIf="submitted && formControls.gender.errors" class="invalid-input">
+              <div *ngIf="formControls.gender.errors.required">Gender is required</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Email
+            </label>
+            <input type="text" formControlName="email" class="form-control"
+              [ngClass]="{ 'is-invalid': (submitted || formControls.email.touched)  && formControls.email.errors }" />
+            <div *ngIf="((submitted || formControls.email.touched) && formControls.email.errors)"
+              class="invalid-input">
+              <div class="error-msg" *ngIf="formControls.email.errors.required">Email is required</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Address
+            </label>
+            <textarea class="form-control" formControlName="address" rows="2"
+            [ngClass]="{ 'is-invalid': (submitted || formControls.address.touched)  && formControls.address.errors }"
+            ></textarea>
+            <div *ngIf="((submitted || formControls.address.touched) && formControls.address.errors)"
+              class="invalid-input">
+              <div class="error-msg" *ngIf="formControls.address.errors.required">Address is required</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>City
+            </label>
+            <input type="text" formControlName="city" class="form-control"
+              [ngClass]="{ 'is-invalid': (submitted || formControls.city.touched)  && formControls.city.errors }" />
+            <div *ngIf="((submitted || formControls.city.touched) && formControls.city.errors)"
+              class="invalid-input">
+              <div class="error-msg" *ngIf="formControls.city.errors.required">City is required</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>State
+            </label>
+            <input type="text" formControlName="city" class="form-control"
+              [ngClass]="{ 'is-invalid': (submitted || formControls.city.touched)  && formControls.city.errors }" />
+            <div *ngIf="((submitted || formControls.city.touched) && formControls.city.errors)"
+              class="invalid-input">
+              <div class="error-msg" *ngIf="formControls.city.errors.required">City is required</div>
+            </div>
+          </div>
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>

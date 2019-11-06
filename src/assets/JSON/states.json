@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1,
+        "name": "Alabama"
+    },
+    {
+        "id": 3,
+        "name": "Alaska"
+    },
+    {
+        "id": 5,
+        "name": "Arizona"
+    },
+    {
+        "id": 7,
+        "name": "Arkansas"
+    },
+    {
+        "id": 9,
+        "name": "California"
+    },
+    {
+        "id": 11,
+        "name": "Colorado"
+    },
+    {
+        "id": 13,
+        "name": "Connecticut"
+    },
+    {
+        "id": 15,
+        "name": "Delaware"
+    },
+    {
+        "id": 17,
+        "name": "Florida"
+    },
+    {
+        "id": 19,
+        "name": "Georgia"
+    },
+    {
+        "id": 21,
+        "name": "Hawaii"
+    },
+    {
+        "id": 23,
+        "name": "Idaho"
+    },
+    {
+        "id": 25,
+        "name": "Illinois"
+    },
+    {
+        "id": 27,
+        "name": "Indiana"
+    },
+    {
+        "id": 29,
+        "name": "Iowa"
+    },
+    {
+        "id": 30,
+        "name": "Kansas"
+    }
+]

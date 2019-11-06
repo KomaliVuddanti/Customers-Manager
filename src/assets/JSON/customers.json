@@ -1,0 +1,64 @@
+{
+    "Customers": [
+        {
+            "id": 1,
+            "gender": "male",
+            "firstName": "Ward",
+            "lastName": "Bell",
+            "email": "WardBell@live.com",
+            "address": "3346 Cendar Ave",
+            "city": "Dalls",
+            "state": "Texas"
+        },
+        {
+            "id": 2,
+            "firstName": "Robil",
+            "lastName": "Cleark",
+            "email": "RobilCleark@live.com",
+            "address": "3346 Cendar Ave",
+            "city": "Dalls",
+            "state": "Texas",
+            "gender": "female"
+        },
+        {
+            "id": 3,
+            "firstName": "Robil",
+            "lastName": "Cleark",
+            "email": "RobilCleark@live.com",
+            "address": "3346 Cendar Ave",
+            "city": "Dalls",
+            "state": "Texas",
+            "gender": "male"
+        },
+        {
+            "id": 4,
+            "gender": "male",
+            "firstName": "Robil",
+            "lastName": "Cleark",
+            "email": "RobilCleark@live.com",
+            "address": "3346 Cendar Ave",
+            "city": "Dalls",
+            "state": "Texas"
+        },
+        {
+            "id": 5,
+            "gender": "male",
+            "firstName": "Robil",
+            "lastName": "Cleark",
+            "email": "RobilCleark@live.com",
+            "address": "3346 Cendar Ave",
+            "city": "Dalls",
+            "state": "Texas"
+        },
+        {
+            "id": 6,
+            "gender": "female",
+            "firstName": "Robil",
+            "lastName": "Cleark",
+            "email": "RobilCleark@live.com",
+            "address": "3346 Cendar Ave",
+            "city": "Dalls",
+            "state": "Texas"
+        }
+    ]
+}
