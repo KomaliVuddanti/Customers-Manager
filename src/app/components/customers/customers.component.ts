@@ -12,6 +12,8 @@ export class CustomersComponent implements OnInit {
   displayMode: DisplayModeEnum;
   displayModeEnum = DisplayModeEnum;
   filteredCustomers: Customers[];
+  totalRec : number;
+  page: number = 1;
 
   constructor(private customerService: CustomerService) {}
 
@@ -24,6 +26,7 @@ export class CustomersComponent implements OnInit {
     this.customerService.getAllCustomers().subscribe(result => {
       this.allCustomers = result;
       this.filteredCustomers = result;
+      this.totalRec = this.allCustomers.length;
     });
   }
 

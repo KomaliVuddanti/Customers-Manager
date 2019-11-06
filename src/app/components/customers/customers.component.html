@@ -16,11 +16,11 @@
             <li class="nav-item">
               <a class="nav-link" (click)="changeDisplayMode(displayModeEnum.Card)"
                 [class.active]="displayMode === displayModeEnum.Card">
-                <span class="glyphicon glyphicon-th-large"></span> Card View </a>
+                <i class="fas fa-th"></i> Card View </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" (click)="changeDisplayMode(displayModeEnum.List)"
-                [class.active]="displayMode === displayModeEnum.Grid"><i class="fas fa-list"></i> List View </a>
+                [class.active]="displayMode === displayModeEnum.List"><i class="fas fa-list"></i> List View </a>
             </li>
             <li class="nav-item">
               <a class="nav-link"><span class="glyphicon glyphicon-plus"></span> <a
@@ -41,7 +41,10 @@
 
     <section [hidden]="displayMode !== displayModeEnum.Card">
       <div class="row">
-        <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let customer of filteredCustomers">
+        <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let customer of filteredCustomers | paginate: { id: 'listing_pagination',
+        itemsPerPage: 4,
+        currentPage: page,
+        totalItems: totalRec }">
           <div class="card">
             <div class="card-header">
               <div class="d-flex justify-content-between">
@@ -72,40 +75,45 @@
           </div> <br />
         </div>
       </div>
+
+      <div class="pagination">
+        <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event">
+        </pagination-controls>
+      </div>
+
     </section>
 
     <section [hidden]="displayMode !== displayModeEnum.List">
-      <div class="row">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col"></th>
-              <th scope="col">First Name</th>
-              <th scope="col">Last Name</th>
-              <th scope="col">Address</th>
-              <th scope="col">City</th>
-              <th scope="col">State</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let customer of filteredCustomers; let i=index">
-              <td>
-                <img *ngIf="customer?.gender === 'male'" src="/assets/images/male.png" width="50px" height="50px" />
-                <img *ngIf="customer?.gender === 'female'" src="/assets/images/female.png" width="50px" height="50px" />
-              </td>
-              <td> <a [routerLink]="['/customers', customer.id, 'edit']" > {{customer?.firstName}} </a>  </td>
-              <td>{{customer?.lastName}}</td>
-              <td>{{customer?.address}} </td>
-              <td> {{customer?.city}} </td>
-              <td> {{customer?.state}} </td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="scroll-table">
+          <div class="row">
+              <table class="table table-striped">
+                <thead class="table-head" >
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">City</th>
+                    <th scope="col">State</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let customer of filteredCustomers; let i=index">
+                    <td>
+                      <img *ngIf="customer?.gender === 'male'" src="/assets/images/male.png" width="50px" height="50px" />
+                      <img *ngIf="customer?.gender === 'female'" src="/assets/images/female.png" width="50px" height="50px" />
+                    </td>
+                    <td> <a [routerLink]="['/customers', customer.id, 'edit']"> {{customer?.firstName}} </a> </td>
+                    <td>{{customer?.lastName}}</td>
+                    <td>{{customer?.address}} </td>
+                    <td> {{customer?.city}} </td>
+                    <td> {{customer?.state}} </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
       </div>
     </section>
 
   </div>
 </div>
-
-
-

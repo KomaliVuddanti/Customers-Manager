@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ToastrModule } from 'ngx-toastr';
 import { SharedModule } from './shared/shared.module';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +27,7 @@ import { CustomersEditComponent } from './components/customers-edit/customers-ed
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
+    NgxPaginationModule,
     ToastrModule.forRoot({ preventDuplicates: true }),
     AppRoutingModule
   ],

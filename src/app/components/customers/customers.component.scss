@@ -18,3 +18,24 @@
 .table {
     width: 100%;
 }
+.active {
+  font-weight: 500;
+  color: rgb(0, 0, 165) !important;
+}
+.scroll-table {
+  height: 400px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.table-head th {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: white;
+}
+
+.pagination{
+  position: fixed;
+  bottom: 0;
+
+}
